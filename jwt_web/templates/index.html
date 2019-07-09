@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" type="text/css" href="{% static '../static/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '../static/css/index.css' %}">
+
+  <script src="{% static '../static/js/core.js' %}"></script>
+  <script src="{% static '../static/js/enc-base64.js' %}"></script>
+  <script src="{% static '../static/js/hmac.js' %}"></script>
+  <script src="{% static '../static/js/sha256.js' %}"></script>
+  <script src="{% static '../static/js/encode-decode.js' %}"></script>
+
+  <title>Trinity Roots JWT</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Trinity Roots</a>
+  </nav>
+  <div class="heigth__header">
+  </div>
+  <div class="container">
+    <div>
+
+    </div>
+    <div class="row align-items-start heigth__header">
+      <div class="form-group col">
+        <label for="exampleFormControlTextarea1">Enter JWT header:</label>
+        <textarea class="form-control" type="text" id="txtHeader" rows="5">
+{ 
+    "typ":"JWT",
+    "alg":"HS256"
+}
+        </textarea>
+      </div>
+      <div class="form-group col">
+        <label for="exampleFormControlTextarea1">Enter JWT payload:</label>
+        <textarea class="form-control" type="text" id="txtPayload" rows="5">
+{
+    "iss": "ABC Service",
+    "username": "Jag",
+    "admin": false
+}
+        </textarea>
+
+      </div>
+      <div class="form-group col">
+        <label for="exampleFormControlTextarea1">Enter Hash secret/password:</label>
+        <textarea class="form-control" type="text" id="txtSecret" rows="5">
+password_one
+        </textarea>
+      </div>
+    </div>
+
+    <div class="heigth__down__content">
+      <button onclick="createJWT()" type="button" class="btn btn-outline-primary">decode</button>
+    </div>
+    <div>
+      result
+      <td>
+        <div id="resultJWT" class="break__word heigth__down__decode"></div>
+      </td>
+    </div>
+  </div>
+
+</body>
+
+</html>
